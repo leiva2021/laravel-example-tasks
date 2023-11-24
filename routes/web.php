@@ -63,7 +63,7 @@ Route::get('/editTask/{id}', function ($id) {
     $startTime = microtime(true);
     $task = Task::findOrFail($id);
     return view('tasks', ['task' => $data, 'isEdit' => true, 'elapsed' => microtime(true) - $startTime]);
-}->name('editTask'));
+})->name('editTask');
 
 Route::post('/updateTask/{task}', function($task){
     Log::info('Update /updateTask/'.$task);
