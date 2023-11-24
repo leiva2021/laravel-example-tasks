@@ -16,6 +16,10 @@
                     <form action="{{ isset($task) && !empty($task) ? route('updateTask', ['task' => $task]) : '/task' }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
+                        @if(isset($task))
+                            @method('PUT')
+                        @endif
+
                         <!-- Task Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Tarea</label>
