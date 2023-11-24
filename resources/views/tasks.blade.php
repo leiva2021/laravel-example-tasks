@@ -14,7 +14,7 @@
 
                     <!-- New Task Form -->
                     <form action="{{ isset($task) ? route('updateTask', ['task' => $task->id]) : '/task' }}" method="POST" class="form-horizontal">
-                        {{ csrf_field() }}
+                        @csrf
 
                         @method(isset($task) ? 'PUT' : 'POST')
 
