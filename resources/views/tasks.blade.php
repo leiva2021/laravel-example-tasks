@@ -13,11 +13,11 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ isset($task) ? route('updateTask', ['task' => $task->id]) : '/task' }}" method="POST" class="form-horizontal">
+                    <form action="{{ isset($task) ? route('updateTask', ['task' => $task]) : '/task' }}" method="POST" class="form-horizontal">
                         @csrf
-
-                        @method(isset($task) ? 'PUT' : 'POST')
-
+                        @if(isset($task))
+                            @method('PUT)
+                        @endif
                         <!-- Task Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Tarea</label>
