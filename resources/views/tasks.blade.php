@@ -54,26 +54,28 @@
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
-                                @foreach ($tasks as $task)
-                                    <tr>
-                                        <td class="table-text"><div>{{ $task->name }}</div></td>
+                                @if(!empty($tasks))
+                                    @foreach ($tasks as $task)
+                                        <tr>
+                                            <td class="table-text"><div>{{ $task->name }}</div></td>
 
-                                        <!-- Task Delete Button -->
-                                        <td>
-                                            <form action="{{'/task/' . $task->id }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
+                                            <!-- Task Delete Button -->
+                                            <td>
+                                                <form action="{{'/task/' . $task->id }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
 
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Eliminar
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('editTask', ['id' => $task->id]) }}" class="btn btn-warning" role="button"><i class="fa fa-btn fa-pencil"></i>Editar</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fa fa-btn fa-trash"></i>Eliminar
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('editTask', ['id' => $task->id]) }}" class="btn btn-warning" role="button"><i class="fa fa-btn fa-pencil"></i>Editar</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
