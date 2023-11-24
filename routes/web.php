@@ -58,6 +58,18 @@ Route::post('/task', function (Request $request) {
     return redirect('/');
 });
 
+Route::get('/editTask/{id}', function ($id) {
+    Log::info('Get /editTask');
+    $startTime = microtime(true);
+    $task = Task::findOrFail($id);
+    return view('tasks', ['task' => $data, 'isEdit' => true, 'elapsed' => microtime(true) - $startTime]);
+}->name('editTask'));
+
+Route::post('/updateTask/{task}', function($task){
+    Log::info('Update /updateTask/'.$task);
+    return redirect('/');
+})->name('updateTask');
+
 /**
     * Delete Task
     */

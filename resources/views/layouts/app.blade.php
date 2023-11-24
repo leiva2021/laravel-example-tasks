@@ -26,7 +26,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
 
