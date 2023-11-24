@@ -58,7 +58,7 @@ Route::post('/task', function (Request $request) {
     return redirect('/');
 });
 
-Route::get('/editTask/{id}', function ($id) {
+/*Route::get('/editTask/{id}', function ($id) {
     Log::info('Get /editTask');
     $startTime = microtime(true);
     $task = Task::findOrFail($id);
@@ -83,7 +83,7 @@ Route::put('/updateTask/{task}', function(Request $request, Task $task) {
     // Clear the cache
     Cache::flush();
     return redirect('/');
-})->name('updateTask');
+})->name('updateTask');*/
 
 /**
     * Delete Task
