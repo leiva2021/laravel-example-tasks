@@ -70,7 +70,7 @@ Route::get('/editTask/{id}', function ($id) {
 
 Route::put('/updateTask/{task}', function(Request $request, Task $task) {
     Log::info('Update /updateTask/'.$task->id);
-    validator = Validator::make($request->all(), [
+    $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
     ]);
     if ($validator->fails()) {
