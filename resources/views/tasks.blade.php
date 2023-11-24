@@ -13,9 +13,9 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ isset($task) ? route('updateTask', ['task' => $task]) : '/task' }}" method="POST" class="form-horizontal">
+                    <form action="{{ isset($taskEdit) ? route('updateTask', ['task' => $taskEdit]) : '/task' }}" method="POST" class="form-horizontal">
                         @csrf
-                        @if(isset($task))
+                        @if(isset($taskEdit))
                             @method('PUT)
                         @endif
                         <!-- Task Name -->
@@ -23,7 +23,7 @@
                             <label for="task-name" class="col-sm-3 control-label">Tarea</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('name', isset($task) ? $task->name : '') }}">
+                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('name', isset($taskEdit) ? $taskEdit->name : '') }}">
                             </div>
                         </div>
 

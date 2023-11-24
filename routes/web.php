@@ -65,7 +65,7 @@ Route::get('/editTask/{id}', function ($id) {
     if(Cache::has('tasks')){
        $data = Cache::get('tasks');
     }
-    return view('tasks', ['task' => $task, 'tasks' => $data, 'isEdit' => true, 'elapsed' => microtime(true) - $startTime]);
+    return view('tasks', ['taskEdit' => $task, 'tasks' => $data, 'isEdit' => true, 'elapsed' => microtime(true) - $startTime]);
 })->name('editTask');
 
 Route::put('/updateTask/{task}', function(Request $request, Task $task) {
