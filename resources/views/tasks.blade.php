@@ -13,7 +13,7 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ isset($task) ? route('updateTask', ['task' => $task]) : '/task' }}" method="POST" class="form-horizontal">
+                    <form action="{{ isset($task) ? route('updateTask', ['task' => $task->id]) : '/task' }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         @method(isset($task) ? 'PUT' : 'POST')
