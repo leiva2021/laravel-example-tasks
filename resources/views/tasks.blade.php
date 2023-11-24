@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-btn fa-plus"></i> {{ $isEdit ? 'Editar Tarea' : 'Agregar Tarea' }}
+                                    <i class="fa fa-btn fa-plus"></i> {{ isset($isEdit) ? 'Editar Tarea' : 'Agregar Tarea' }}
                                 </button>
                             </div>
                         </div>
