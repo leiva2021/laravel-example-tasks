@@ -14,7 +14,7 @@
 
                     <!-- New Task Form -->
                     <form action="{{ isset($taskEdit) ? route('updateTask', ['task' => $taskEdit]) : '/task' }}" method="POST" class="form-horizontal">
-                        @csrf
+                        {{ csrf_field() }}
                         @if(isset($taskEdit))
                             @method('PUT)
                         @endif
