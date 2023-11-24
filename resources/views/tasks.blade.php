@@ -13,12 +13,10 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ isset($task) && !empty($task) ? route('updateTask', ['task' => $task]) : '/task' }}" method="POST" class="form-horizontal">
+                    <form action="{{ isset($task) ? route('updateTask', ['task' => $task]) : url('/task') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
-                        @if(isset($task))
-                            @method('PUT')
-                        @endif
+                        @method(isset($task) ? 'PUT' : 'POST')
 
                         <!-- Task Name -->
                         <div class="form-group">

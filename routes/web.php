@@ -68,7 +68,7 @@ Route::get('/editTask/{id}', function ($id) {
     return view('tasks', ['task' => $task, 'tasks' => $data, 'isEdit' => true, 'elapsed' => microtime(true) - $startTime]);
 })->name('editTask');
 
-Route::match(['put', 'post'], '/updateTask/{task}', function($task) {
+Route::post('/updateTask/{task}', function($task) {
     Log::info('Update /updateTask/'.$task);
     return redirect('/');
 })->name('updateTask');
