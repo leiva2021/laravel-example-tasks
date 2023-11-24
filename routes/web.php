@@ -68,8 +68,20 @@ Route::get('/editTask/{id}', function ($id) {
     return view('tasks', ['task' => $task, 'tasks' => $data, 'isEdit' => true, 'elapsed' => microtime(true) - $startTime]);
 })->name('editTask');
 
-Route::put('/updateTask/{task}', function($task) {
-    Log::info('Update /updateTask/'.$task);
+Route::put('/updateTask/{task}', function(Request $request, Task $task) {
+    Log::info('Update /updateTask/'.$task->id);
+    validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+    if ($validator->fails()) {
+        Log::error("Update task failed.");
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
+    $task->update($request->all());
+    // Clear the cache
+    Cache::flush();
     return redirect('/');
 })->name('updateTask');
 
