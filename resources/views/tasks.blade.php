@@ -40,7 +40,7 @@
             </div>
 
             <!-- Current Tasks -->
-            @if (count($tasks) > 0)
+            @if (!empty($tasks))
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Tareas Actuales
@@ -54,28 +54,26 @@
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
-                                @if(!empty($tasks))
-                                    @foreach ($tasks as $task)
-                                        <tr>
-                                            <td class="table-text"><div>{{ $task->name }}</div></td>
+                                @foreach ($tasks as $task)
+                                    <tr>
+                                        <td class="table-text"><div>{{ $task->name }}</div></td>
 
-                                            <!-- Task Delete Button -->
-                                            <td>
-                                                <form action="{{'/task/' . $task->id }}" method="POST">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('DELETE') }}
+                                        <!-- Task Delete Button -->
+                                        <td>
+                                            <form action="{{'/task/' . $task->id }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
 
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fa fa-btn fa-trash"></i>Eliminar
-                                                    </button>
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('editTask', ['id' => $task->id]) }}" class="btn btn-warning" role="button"><i class="fa fa-btn fa-pencil"></i>Editar</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @endif
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-btn fa-trash"></i>Eliminar
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('editTask', ['id' => $task->id]) }}" class="btn btn-warning" role="button"><i class="fa fa-btn fa-pencil"></i>Editar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
