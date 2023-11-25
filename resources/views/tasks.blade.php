@@ -20,7 +20,7 @@
                             <label for="task-name" class="col-sm-3 control-label">Tarea</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('name' }}">
+                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('name') }}">
                             </div>
                         </div>
 
