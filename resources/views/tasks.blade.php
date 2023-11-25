@@ -37,7 +37,7 @@
             </div>
 
             <!-- Current Tasks -->
-            @if (($tasks) > 0)
+            @if (count($tasks) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Tareas Actuales
